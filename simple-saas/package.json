@@ -1,0 +1,24 @@
+{
+  "name": "homework11",
+  "version": "1.0.0",
+  "description": "homework11",
+  "main": "index.js",
+  "scripts": {
+    "scss:build": "node-sass src/scss/styles.scss -o src/css",
+    "scss:watch": "node-sass --watch src/scss/styles.scss -o src/css",
+    "build": "npm run scss:build && npm run scss:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VasilTelyachuk/HomeWork11.git"
+  },
+  "author": "Vasil Telyachuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VasilTelyachuk/HomeWork11/issues"
+  },
+  "homepage": "https://github.com/VasilTelyachuk/HomeWork11#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1"
+  }
+}
