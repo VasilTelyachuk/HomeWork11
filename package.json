@@ -7,7 +7,7 @@
     "start": "cross-env PORT=7070 gulp start --development",
     "build": "gulp build --production",
     "lint-styles": "stylelint './src/sass/**/*.scss' --syntax scss --fix"
-  },
+    },
   "homepage": "https://luxplanjay.github.io/gulp-boilerplate",
   "repository": {
     "type": "git",
