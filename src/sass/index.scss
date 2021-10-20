@@ -6,29 +6,32 @@
 
 @import 'normalize';
 
-$color: (
-    primery-color: #999999,
-    secondary-color: #ffffff,
-    third-color: #333333,
-    nav-hover-primery-color: #fce38a,
-    decoration-primery-color: #f38181,
-    services-icon-color: #95e1d3,
-    bg-team-color: #95e1d3,
-    socials-primery-color: #fce38a,
-    socials-hover-primery-color: #f38181,
-    footer-primery-color: #e5e5e5,
-    footer-secondary-color: #f6a1a1,
-);
+$primery-color: #999999;
+$secondary-color: #ffffff;
+$third-color: #333333;
+$nav-hover-primery-color: #fce38a;
+$title-decoration-color: #f38181;
+$services-icon-color: #95e1d3;
+$bg-team-color: #95e1d3;
+$team-icon-gradient: linear-gradient(360deg, rgb(252, 227, 138) 0%, rgb(243, 129, 129) 100%);
+$socials-bg-color: #fce38a;
+$socials-bg-hover-color: #f38181;
+$socials__icon-color:  #f38181;
+$socials__icon-stroke-color:  #333333;
+$socials__icon-hover-color:  #ffffff;
+$footer-primery-color: #e5e5e5;
+$footer-secondary-color: #f6a1a1;
 
 $primery-font: 'Montserrat', 'sans-serif';
 $secondary-font: 'Roboto', 'sans-serif';
 $third-font: 'Kaushan Script', 'sans-serif';
 
-@mixin typography($font, $size, $height, $weight) {
+@mixin typography($font, $size, $height, $weight, $color) {
     font-family: $font;
     font-size: $size;
     line-height: $height;
     font-weight: $weight;
+    color: $color;
 }
 
 @mixin bg-image($path, $position, $size, $repeat) {
@@ -38,9 +41,19 @@ $third-font: 'Kaushan Script', 'sans-serif';
     background-repeat: $repeat;
 }
 
+@mixin text-decoration($text-transform, $text-decoration) {
+    text-transform: $text-transform;
+    text-decoration: $text-decoration;
+}
+
+@mixin transition($property, $duration, $timing) {
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $timing; 
+}
+
 body {
-    color: map-get($color, primery-color);
-    @include typography($secondary-font, 15px, 1.2, 400);
+    @include typography($secondary-font, 15px, 1.2, 400, $primery-color);
 }
 
 .wrapper {
@@ -70,8 +83,7 @@ body {
 
 .logo {
     text-decoration: none;
-    color: map-get($color, secondary-color);
-    @include typography($primery-font, 30px, 36px, 700);
+    @include typography($primery-font, 30px, 36px, 700, $secondary-color);
 }
 
 .nav {
@@ -87,7 +99,6 @@ body {
 
 .nav-menu__item {
     list-style: none;
-    text-transform: uppercase;
 }
 
 .nav-menu__item:not(:nth-child(5n)) {
@@ -98,11 +109,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    transition-property: color;
-    transition-duration: 200ms;
-    color: map-get($color, secondary-color);
-    @include typography($primery-font, 14px, 17px, 500);
+    @include transition(color, 200ms, linear)
+    @include typography($primery-font, 14px, 17px, 500, $secondary-color);
+    @include text-decoration(uppercase, none);
 
     &::after {
         display: block;
@@ -114,21 +123,21 @@ body {
     }
 
     &:hover {
-        color: map-get($color, nav-hover-primery-color);
-    }
+        color: $nav-hover-primery-color;
 
-    &:hover::after {
-        display: block;
-        background-color: map-get($color, nav-hover-primery-color);
-        transform: translateY(10px);
+        &::after {
+            display: block;
+            background-color: $nav-hover-primery-color;
+            transform: translateY(10px);
+        }
     }
 }
 
 .option-form__icon {
-    fill: map-get($color, secondary-color);
+    fill: $secondary-color;
 
     &:hover {
-        fill: map-get($color, nav-hover-primery-color);
+        fill: $nav-hover-primery-color;
     }
 }
 
@@ -149,17 +158,17 @@ body {
 
 .section-performance__content {
     display: flex;
-    margin: 0px auto;
     flex-direction: column;
     align-items: center;
-    color: map-get($color, secondary-color);
-    background: linear-gradient(360deg, rgb(252, 227, 138) 0%, rgb(243, 129, 129) 100%);
+    color: $secondary-color;
+    background: $team-icon-gradient;
     padding-top: 210px;
+    margin: 0px auto;
     opacity: 0.9;
 }
 
 .header-text {
-    @include typography($third-font, 72px, 86px, 400);
+    @include typography($third-font, 72px, 86px, 400, $secondary-color);
 }
 
 .section-performance__text {
@@ -170,7 +179,7 @@ body {
     text-transform: uppercase;
     text-align: center;
     margin: 0px;
-    @include typography($primery-font, 150px, 140px, 700);
+    @include typography($primery-font, 150px, 140px, 700, $secondary-color);
 }
 
 .section-performance__title {
@@ -187,8 +196,7 @@ body {
     width: 160px;
     height: 40px;
     border: 3px solid #ffffff;
-    color: map-get($color, secondary-color);
-    @include typography($primery-font, 14px, 17px, 700);
+    @include typography($primery-font, 14px, 17px, 700, $secondary-color);
     cursor: pointer;
 }
 
@@ -203,8 +211,7 @@ body {
 
 .section-text {
     margin: 0px;
-    color: map-get($color, third-color);
-    @include typography($third-font, 24px, 29px, 400);
+    @include typography($third-font, 24px, 29px, 400, $third-color);
 }
 
 .services__text {
@@ -214,15 +221,14 @@ body {
 .section-title {
     margin: 0px;
     text-transform: uppercase;
-    color: map-get($color, third-color);
-    @include typography($primery-font, 30px, 36px, 700);
-
+    @include typography($primery-font, 30px, 36px, 700, $third-color); 
+    
     &::after {
         display: block;
         content: '';
         width: 60px;
         height: 3px;
-        background-color: map-get($color, decoration-primery-color);
+        background-color: $title-decoration-color;
         margin: auto;
         margin-top: 40px;
     }
@@ -252,16 +258,15 @@ body {
 }
 
 .services-menu__icon {
-    fill: map-get($color, services-icon-color);
+    fill: $services-icon-color;
     padding: 0px 25px;
-    }
+}
 
 .services-menu__name {
     text-transform: uppercase;
     margin: 0px;
     margin-bottom: 16px;
-    color: map-get($color, third-color);
-    @include typography($primery-font, 14px, 17px, 500);
+    @include typography($primery-font, 14px, 17px, 500, $third-color);
 }
 
 .services-menu__info {
@@ -273,15 +278,8 @@ body {
 }
 
 .team {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -301,13 +299,8 @@ body {
 }
 
 .team-list {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     list-style: none;
     padding: 0px;
@@ -315,15 +308,8 @@ body {
 }
 
 .team-list__item {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     position: relative;
 }
@@ -333,108 +319,55 @@ body {
 }
 
 .team-list__box {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    background-color: #95e1d3;
+    background-color: $services-icon-color;
     margin-bottom: 30px;
+
+    &:hover .team-cart {
+        transform: translate(-10px, -10px);
+    }
+
+    &:hover .wrap-socials {
+        transform: translate(-10px, -10px);
+        opacity: 100%;
+    }
 }
 
 .team-cart {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-transition-property: -webkit-transform;
-    transition-property: -webkit-transform;
-    -o-transition-property: transform;
-    transition-property: transform;
-    transition-property: transform, -webkit-transform;
-    -webkit-transition-duration: 200ms;
-    -o-transition-duration: 200ms;
-    transition-duration: 200ms;
-    -webkit-transition-timing-function: linear;
-    -o-transition-timing-function: linear;
-    transition-timing-function: linear;
+    @include transition(transform, 200ms, linear);
 }
 
-.team-list__box:hover .team-cart {
-    -webkit-transform: translate(-10px, -10px);
-    -ms-transform: translate(-10px, -10px);
-    transform: translate(-10px, -10px);
-}
+
 
 .wrap-socials {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    position: absolute;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
+    position: absolute;
     width: 380px;
     height: 470px;
     opacity: 0%;
-    -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, -webkit-transform;
-    -o-transition-property: transform, opacity;
-    transition-property: transform, opacity;
-    transition-property: transform, opacity, -webkit-transform;
-    -webkit-transition-duration: 200ms;
-    -o-transition-duration: 200ms;
-    transition-duration: 200ms;
-    -webkit-transition-timing-function: linear;
-    -o-transition-timing-function: linear;
-    transition-timing-function: linear;
-    background: -webkit-linear-gradient(
-        90deg,
-        rgba(252, 227, 138, 0.9) 0%,
-        rgba(243, 129, 129, 0.9) 100%
-    );
-}
-
-.team-list__box:hover .wrap-socials {
-    -webkit-transform: translate(-10px, -10px);
-    -ms-transform: translate(-10px, -10px);
-    transform: translate(-10px, -10px);
-    opacity: 100%;
+    @include transition('transform,opacity', 200ms, linear);
+    background: $team-icon-gradient;
 }
 
 .wrap-socials__massengers {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     padding: 0px;
     border: none;
     width: 56px;
     height: 56px;
-    background-color: #fce38a;
+    background-color: $socials-bg-color;
     cursor: pointer;
-    -webkit-transition-property: background-color;
-    -o-transition-property: background-color;
-    transition-property: background-color;
-    -webkit-transition-duration: 200ms;
-    -o-transition-duration: 200ms;
-    transition-duration: 200ms;
-    -webkit-transition-timing-function: linear;
-    -o-transition-timing-function: linear;
-    transition-timing-function: linear;
-}
+    @include transition(background-color, 200ms, linear);
 
-.wrap-socials__massengers:hover {
-    background-color: #f38181;
+    &:hover {
+        background-color: $socials-bg-hover-color;
+    }
 }
 
 .wrap-socials__massengers:not(:nth-child(4n)) {
@@ -442,12 +375,12 @@ body {
 }
 
 .wrap-socials__icon {
-    fill: #f38181;
+    fill: $socials__icon-color;
 }
 
 .wrap-socials__massengers:hover .wrap-socials__icon {
-    fill: #ffffff;
-    stroke: #333333;
+    fill: $socials__icon-hover-color;
+    stroke: $socials__icon-stroke-color;
 }
 
 .team-list__name {
@@ -474,8 +407,6 @@ body {
 }
 
 .footer::before {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     content: '';
     width: 100%;
@@ -486,14 +417,8 @@ body {
 }
 
 .footer-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -503,11 +428,7 @@ body {
 }
 
 .form {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
     justify-content: end;
 }
 
