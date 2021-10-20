@@ -1,0 +1,46 @@
+.services {
+    width: 1182px;
+    margin: 0px auto;
+    margin-bottom: 96px;
+    @include position-column(flex, column, center);
+}
+
+.services__text {
+    margin-bottom: 15px;
+}
+
+.services__title::after {
+    margin-bottom: 65px;
+}
+
+.services-menu {
+    @extend %list-style;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.services-menu__item {
+    display: flex;
+    width: 381px;
+    margin-bottom: 0px;
+
+    &:nth-child(-n + 3) {
+        margin-bottom: 98px;
+    }
+}
+
+.services-menu__icon {
+    fill: $services-icon-color;
+    padding: 0px 25px;
+}
+
+.services-menu__name {
+    text-transform: uppercase;
+    margin: 0px;
+    margin-bottom: 16px;
+    @include typography($primery-font, 14px, 17px, 500, $text-third-color);
+}
+
+.services-menu__info {
+    margin: 0px;
+}

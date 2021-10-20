@@ -1,0 +1,20 @@
+.section-text {
+    margin: 0px;
+    @include typography($third-font, 24px, 29px, 400, $text-third-color);
+}
+
+.section-title {
+    margin: 0px;
+    text-transform: uppercase;
+    @include typography($primery-font, 30px, 36px, 700, $text-third-color);
+
+    &::after {
+        display: block;
+        content: '';
+        width: 60px;
+        height: 3px;
+        background-color: $title-decoration-color;
+        margin: auto;
+        margin-top: 40px;
+    }
+}

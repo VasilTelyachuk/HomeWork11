@@ -1,0 +1,105 @@
+.team {
+    margin-bottom: 80px;
+    @include position-column(flex, column, center);
+}
+
+.team__text {
+    margin-bottom: 15px;
+}
+
+.team__title::after {
+    margin-bottom: 48px;
+}
+
+.team__info {
+    margin: 0px auto;
+    margin-bottom: 118px;
+    max-width: 980px;
+    text-align: center;
+}
+
+.team-list {
+    @extend %list-style;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-list__item {
+    position: relative;
+    @include position-column(flex, column, center);
+
+    &:not(:nth-last-child(1)) {
+        margin-right: 30px;
+    }
+}
+
+.team-list__box {
+    display: flex;
+    background-color: $bg-team-color;
+    margin-bottom: 30px;
+
+    &:hover .team-cart {
+        transform: translate(-10px, -10px);
+    }
+
+    &:hover .wrap-socials {
+        transform: translate(-10px, -10px);
+        opacity: 100%;
+    }
+}
+
+.team-cart {
+    display: flex;
+    @include transition(transform, 200ms, linear);
+}
+
+.wrap-socials {
+    flex-direction: row;
+    position: absolute;
+    width: 380px;
+    height: 470px;
+    opacity: 0%;
+    @include position-row(flex, center, center) @include
+        transition('transform,opacity', 200ms, linear);
+    background: $team-icon-gradient;
+}
+
+.wrap-socials__massengers {
+    padding: 0px;
+    border: none;
+    width: 56px;
+    height: 56px;
+    background-color: $socials-bg-color;
+    cursor: pointer;
+    @include position-row(flex, center, center) @include transition(background-color, 200ms, linear);
+
+    &:hover {
+        background-color: $socials-bg-hover-color;
+    }
+
+    &:hover .wrap-socials__icon {
+        fill: $socials__icon-hover-color;
+        stroke: $socials__icon-stroke-color;
+    }
+
+    &:not(:nth-last-child(1)) {
+        margin-right: 1px;
+    }
+}
+
+.wrap-socials__icon {
+    fill: $socials__icon-color;
+    @include transition(fill, 200ms, linear);
+}
+
+.team-list__name {
+    text-transform: uppercase;
+    margin: 0px;
+    margin-bottom: 13px;
+    @include typography($primery-font, 14px, 17px, 500, $text-third-color);
+}
+
+.team-list__position {
+    font-weight: 300;
+    font-style: italic;
+}

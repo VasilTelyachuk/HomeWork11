@@ -36,7 +36,7 @@
 
         <!-- Prevent SEO issues caused by duplicate content by specifying the original source for pages that are available on multiple URLs. -->
         <link rel="canonical" href="https://www.mywebsite.com/page" />
-        <link rel="stylesheet" href="./css/normalize.min.css" />
+        <link rel="stylesheet" href="css/normalize.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;700&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet"/>
         <link rel="stylesheet" href="css/index.min.css">
         <!-- inject:css -->
@@ -67,12 +67,13 @@
                     <a href="#" class="nav-menu__link">Contact</a>
                   </li>
                 </ul>
-                <a href="#" class="option-form buy"
-                  ><svg class="option-form__icon" width="18" height="18">
+                <div class="nav-options"></div>
+                <a href="#" class="nav-options__link"
+                  ><svg class="nav-options__icon" width="18" height="18">
                     <use href="../images/symbol-defs.svg#buy"></use></svg>
                 </a>
-                <a href="#" class="option-form search">
-                  <svg class="option-form__icon" width="18" height="18">
+                <a href="#" class="nav-options__link">
+                  <svg class="nav-options__icon" width="18" height="18">
                     <use href="../images/symbol-defs.svg#search"></use></svg>
                 </a>
               </nav>
@@ -88,7 +89,7 @@
             </div>
           </section>
           <div class="container">
-            <section class="services section-services-mb">
+            <section class="services">
               <span class="services__text section-text">We work with</span>
               <h3 class="services__title section-title">Amazing services</h3>
               <ul class="services-menu">

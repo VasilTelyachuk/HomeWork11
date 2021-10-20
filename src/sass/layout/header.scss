@@ -1,0 +1,14 @@
+.header {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+
+
+.header-content {
+    padding-top: 37px;
+    margin: 0px auto;
+    @include position-row(flex, space-between, flex-end);
+}

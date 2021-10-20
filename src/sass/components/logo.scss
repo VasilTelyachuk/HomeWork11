@@ -1,0 +1,4 @@
+.logo {
+    text-decoration: none;
+    @include typography($primery-font, 30px, 36px, 700, $text-secondary-color);
+}

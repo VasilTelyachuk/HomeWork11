@@ -1,0 +1,23 @@
+.form {
+    display: flex;
+    justify-content: end;
+}
+
+.form__search {
+    font-weight: 300;
+    font-style: italic;
+    border: 1px solid $footer-decoration-color;
+    outline: none;
+}
+
+.form__button {
+    border: none;
+    width: 150px;
+    height: 40px;
+    padding: 0px;
+    color: $text-secondary-color;
+    background-color: $footer-button-bg-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+}

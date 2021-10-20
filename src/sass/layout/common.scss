@@ -1,0 +1,13 @@
+body {
+    @include typography($secondary-font, 15px, 1.2, 400, $text-primery-color);
+}
+
+.wrapper {
+    margin: 0px auto;
+    position: relative;
+}
+
+.container {
+    width: 1201px;
+    margin: 0px auto;
+}

@@ -1,0 +1,8 @@
+.section-btn {
+    background-color: transparent;
+    width: 160px;
+    height: 40px;
+    border: 3px solid $button-border-color;
+    @include typography($primery-font, 14px, 17px, 700, $text-secondary-color);
+    cursor: pointer;
+}
