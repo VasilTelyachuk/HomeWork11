@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env PORT=7070 gulp start --development",
     "build": "gulp build --production",
-    "lint-styles": "stylelint './src/sass/**/*.scss' --syntax scss --fix"
+    "lint-styles": "stylelint './src/sass/**/*.scss' --syntax scss --fix",
+    "deploy": "gh-pages -d src/pages"
   },
   "homepage": "https://vasiltelyachuk.github.io/HomeWork11",
   "repository": {
