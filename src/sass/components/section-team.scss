@@ -67,8 +67,8 @@
 .wrap-socials__massengers {
     padding: 0px;
     border: none;
-    width: 56px;
-    height: 56px;
+    width: 55px;
+    height: 55px;
     background-color: $socials-bg-color;
     cursor: pointer;
     @include position-row(flex, center, center) @include transition(background-color, 200ms, linear);
@@ -82,7 +82,7 @@
         stroke: $socials__icon-stroke-color;
     }
 
-    &:not(:nth-last-child(1)) {
+    &:not(:nth-last-of-type(1)) {
         margin-right: 1px;
     }
 }
