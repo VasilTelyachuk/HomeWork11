@@ -14,12 +14,12 @@
     // }
 }
 
-.footer-box {
+.footer-container {
     padding-top: 10px;
     @include position-row(flex, space-between, center);
 }
 
-.footer-box__creater {
+.footer-container__creater {
     color: $footer-creater-name-color;
     text-decoration: none;
 }
